@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Stelia - E-commerce Fashion</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #f5f5f5;
+      color: #333;
+    }
+    header {
+      background-color: #f29f9f;
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #ddd;
+    }
+    header h1 {
+      font-size: 24px;
+      color: #e7e7e7;
+    }
+    nav a {
+      margin-left: 20px;
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+    }
+    .hero {
+      background: url('https://images.unsplash.com/photo-1589998059171-988d3a0a39ff') center/cover no-repeat;
+      height: 320px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #f4dcdc;
+      text-align: center;
+    }
+    .hero h2 {
+      font-size: 48px;
+      font-weight: bold;
+    }
+    .layout {
+      display: flex;
+      padding: 40px;
+      gap: 30px;
+    }
+    aside {
+      width: 250px;
+      background: #fff;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
+    }
+    aside h3 {
+      margin-bottom: 10px;
+    }
+    aside label {
+      display: block;
+      margin: 5px 0;
+      font-size: 14px;
+    }
+    main {
+      flex: 1;
+    }
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 20px;
+    }
+    .product-card {
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+      overflow: hidden;
+      transition: transform 0.2s;
+    }
+    .product-card:hover {
+      transform: translateY(-5px);
+    }
+    .product-card img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+    }
+    .product-info {
+      padding: 15px;
+      text-align: center;
+    }
+    .product-info h4 {
+      font-size: 16px;
+      margin-bottom: 5px;
+    }
+    .product-info p {
+      color: #777;
+      font-size: 14px;
+    }
+    footer {
+      text-align: center;
+      padding: 20px;
+      background-color: #fff;
+      color: #888;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Stelia</h1>
+    <nav>
+      <a href="#">Home</a>
+      <a href="#">Categories</a>
+      <a href="#">Login</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h2>Simple is More</h2>
+  </section>
+
+  <div class="layout">
+    <aside>
+      <h3>Filter</h3>
+      <label><input type="checkbox"> Adidas</label>
+      <label><input type="checkbox"> Nike</label>
+      <label><input type="checkbox"> Puma</label>
+      <h3 style="margin-top: 20px;">Sizes</h3>
+      <label><input type="checkbox"> S</label>
+      <label><input type="checkbox"> M</label>
+      <label><input type="checkbox"> L</label>
+      <label><input type="checkbox"> XL</label>
+    </aside>
+    <main>
+      <div class="product-grid">
+        <div class="product-card">
+          <img src="./assets/e1.jpeg" alt="Shirt 1">
+          <div class="product-info">
+            <h4>Classic Fit Shirt</h4>
+            <p>$39.99</p>
+          </div>
+        </div>
+        <div class="product-card">
+          <img src="./assets/e1.jpeg" alt="Shirt 2">
+          <div class="product-info">
+            <h4>Casual Grey Shirt</h4>
+            <p>$44.00</p>
+          </div>
+        </div>
+        <div class="product-card">
+          <img src="./assets/e3.jpeg" alt="Shirt 3">
+          <div class="product-info">
+            <h4>Mock Neck Zip</h4>
+            <p>$49.50</p>
+          </div>
+        </div>
+        <div class="product-card">
+          <img src="./assets/e4.jpeg" alt="Shirt 4">
+          <div class="product-info">
+            <h4>Minimal Cotton Tee</h4>
+            <p>$35.90</p>
+          </div>
+        </div>
+        <div class="product-card">
+          <img src="./assets/e5.jpeg" alt="Shirt 5">
+          <div class="product-info">
+            <h4>Relaxed Collar Shirt</h4>
+            <p>$42.00</p>
+          </div>
+        </div>
+        <div class="product-card">
+          <img src="./assets/e6.jpeg" alt="Shirt 6">
+          <div class="product-info">
+            <h4>White Formal Shirt</h4>
+            <p>$50.00</p>
+          </div>
+        </div>
+        <div class="product-card">
+          <img src="./assets/e7.jpeg" alt="Shirt 7">
+          <div class="product-info">
+            <h4>Basic Blue Shirt</h4>
+            <p>$38.75</p>
+          </div>
+        </div>
+        <div class="product-card">
+          <img src="./assets/e8.jpeg" alt="Shirt 8">
+          <div class="product-info">
+            <h4>Striped Button-Down</h4>
+            <p>$46.20</p>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <footer>
+    &copy; 2025 Stelia Fashion. All rights reserved.
+  </footer>
+</body>
+</html>
