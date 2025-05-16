@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz</title>
+    <style>
+        body {
+          font-family: Arial, sans-serif;
+          background-color: #f3f3f3;
+          padding: 20px;
+          text-align: center;
+        }
+    
+        .container {
+          background-color: white;
+          padding: 25px;
+          max-width: 600px;
+          margin: auto;
+          border-radius: 10px;
+          box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+    
+        input {
+          width: 90%;
+          padding: 10px;
+          margin: 10px 0;
+          font-size: 16px;
+        }
+    
+        button {
+          padding: 10px 20px;
+          font-size: 16px;
+          margin-top: 15px;
+          background-color: #4CAF50;
+          color: white;
+          border: none;
+          border-radius: 6px;
+        }
+    
+        .question {
+          font-size: 20px;
+          margin: 20px 0 10px;
+        }
+    
+        .option {
+          background-color: #eee;
+          padding: 10px;
+          margin: 8px 0;
+          border-radius: 5px;
+        }
+    
+        .option:hover {
+          background-color: #dcdcdc;
+        }
+    
+        .score {
+          margin-top: 20px;
+          font-size: 18px;
+          font-weight: bold;
+        }
+    
+        #quiz-section {
+          display: none;
+        }
+      </style>
+</head>
+<body>
+    <h1>HTML, CSS & JavaScript Quiz</h1>
+
+
+  <div class="container" id="form-section">
+    <h2>Enter Your Details</h2>
+    <input type="text" id="name" placeholder="Your Name" required><br>
+    <input type="email" id="email" placeholder="Your Email" required><br>
+    <input type="text" id="roll" placeholder="Roll Number" required><br>
+    <button onclick="startQuiz()">Start Quiz</button>
+  </div>
+
+  <!-- Quiz Section -->
+  <div class="container" id="quiz-section">
+    <div class="question" id="question">Loading question...</div>
+    <div id="options"></div>
+    <button onclick="nextQuestion()">Next</button>
+    <div class="score" id="score"></div>
+  </div>
+
+  <script>
+    const quiz = [
+      {
+        question: "1. What does HTML stand for?",
+        options: [
+          "Hyper Text Markup Language",
+          "Home Tool Markup Language",
+          "Hyperlinks and Text Markup Language",
+          "Highlevel Text Machine Language"
+        ],
+        answer: "Hyper Text Markup Language"
+      },
+      {
+        question: "2. Which HTML tag is used to create a hyperlink?",
+        options: ["<link>", "<a>", "<href>", "<url>"],
+        answer: "<a>"
+      },
+      {
+        question: "3. What does CSS stand for?",
+        options: [
+          "Colorful Style Sheets",
+          "Computer Style Sheets",
+          "Cascading Style Sheets",
+          "Creative Style Sheets"
+        ],
+        answer: "Cascading Style Sheets"
+      },
+      {
+        question: "4. Which property is used to change text color in CSS?",
+        options: ["text-color", "font-color", "color", "text-style"],
+        answer: "color"
+      },
+      {
+        question: "5. How do you declare a function in JavaScript?",
+        options: [
+          "function = myFunc()",
+          "var myFunc()",
+          "function myFunc()",
+          "create myFunc()"
+        ],
+        answer: "function myFunc()"
+      }
+    ];
+
+    let currentIndex = 0;
+    let score = 0;
+    let selected = false;
+
+    function startQuiz() {
+      const name = document.getElementById("name").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const roll = document.getElementById("roll").value.trim();
+
+      if (!name || !email || !roll) {
+        alert("Please fill all the fields!");
+        return;
+      }
+
+      document.getElementById("form-section").style.display = "none";
+      document.getElementById("quiz-section").style.display = "block";
+      loadQuestion();
+    }
+
+    function loadQuestion() {
+      selected = false;
+      const current = quiz[currentIndex];
+      document.getElementById("question").innerText = current.question;
+
+      const optionsDiv = document.getElementById("options");
+      optionsDiv.innerHTML = "";
+
+      current.options.forEach(option => {
+        const div = document.createElement("div");
+        div.className = "option";
+        div.innerText = option;
+        div.onclick = () => selectOption(div, option);
+        optionsDiv.appendChild(div);
+      });
+
+      document.getElementById("score").innerText = "";
+    }
+
+    function selectOption(element, selectedOption) {
+      if (selected) return;
+      selected = true;
+
+      const correctAnswer = quiz[currentIndex].answer;
+      if (selectedOption === correctAnswer) {
+        element.style.backgroundColor = "lightgreen";
+        score++;
+      } else {
+        element.style.backgroundColor = "tomato";
+      }
+
+      document.getElementById("score").innerText = `Score: ${score}/${quiz.length}`;
+    }
+
+    function nextQuestion() {
+      if (!selected) {
+        alert("Please select an option first!");
+        return;
+      }
+
+      currentIndex++;
+      if (currentIndex < quiz.length) {
+        loadQuestion();
+      } else {
+        endQuiz();
+      }
+    }
+
+    function endQuiz() {
+        const name = document.getElementById("name").value;
+        const percentage = Math.round((score / quiz.length) * 100);
+
+        document.getElementById("question").innerText = `Well done, ${name}!`;
+        document.getElementById("options").innerHTML = "";
+        document.querySelector("#quiz-section button").style.display = "none";
+
+        document.getElementById("score").innerHTML = `
+            <p>Final Score: ${score} / ${quiz.length}</p>
+            <p>Percentage: ${percentage}%</p>
+        `;
+    }
+  </script>
+</body>
+</html>
