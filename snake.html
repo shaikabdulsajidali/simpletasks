@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Snake & ladder</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        h1{
+            text-align: center;
+            background-color: skyblue;
+            font-size: 50px;
+        }
+        .main{
+            display: flex;
+            justify-content: center;
+            margin-top: 10px;
+        }
+        .container{
+            display: grid;
+            grid-template-rows: repeat(10,60px);
+            grid-template-columns: repeat(10,60px);
+            border: 3px solid brown;
+            background-image: url(assets/snake&ladder.jpg);
+            background-size:contain;
+            background-repeat: no-repeat;
+        }
+        
+        .box{
+            border: 1px solid black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+        }
+        .btn{
+            text-align: center;
+        }
+        button{
+            padding: 10px;
+            font-size: 20px;
+            background-color: red;
+            color: white;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Snake & ladder</h1>
+    
+    <div class="main">
+        <div class="container">
+            <div class="box" id="div100">100</div>
+            <div class="box" id="div99">99</div>
+            <div class="box" id="div98">98</div>
+            <div class="box" id="div97">97</div>
+            <div class="box" id="div96">96</div>
+            <div class="box" id="div95">95</div>
+            <div class="box" id="div94">94</div>
+            <div class="box" id="div93">93</div>
+            <div class="box" id="div92">92</div>
+            <div class="box" id="div91">91</div>
+            <div class="box" id="div81">81</div>
+            <div class="box" id="div82">82</div>
+            <div class="box" id="div83">83</div>
+            <div class="box" id="div84">84</div>
+            <div class="box" id="div85">85</div>
+            <div class="box" id="div86">86</div>
+            <div class="box" id="div87">87</div>
+            <div class="box" id="div88">88</div>
+            <div class="box" id="div89">89</div>
+            <div class="box" id="div90">90</div>
+            <div class="box" id="div80">80</div>
+            <div class="box" id="div79">79</div>
+            <div class="box" id="div78">78</div>
+            <div class="box" id="div77">77</div>
+            <div class="box" id="div76">76</div>
+            <div class="box" id="div75">75</div>
+            <div class="box" id="div74">74</div>
+            <div class="box" id="div73">73</div>
+            <div class="box" id="div72">72</div>
+            <div class="box" id="div71">71</div> 
+            <div class="box" id="div61">61</div>
+            <div class="box" id="div62">62</div>
+            <div class="box" id="div63">63</div>
+            <div class="box" id="div64">64</div>
+            <div class="box" id="div65">65</div>
+            <div class="box" id="div66">66</div>
+            <div class="box" id="div67">67</div>
+            <div class="box" id="div68">68</div>
+            <div class="box" id="div69">69</div>
+            <div class="box" id="div70">70</div>
+            <div class="box" id="div60">60</div>
+            <div class="box" id="div59">59</div>
+            <div class="box" id="div58">58</div>
+            <div class="box" id="div57">57</div>
+            <div class="box" id="div56">56</div>
+            <div class="box" id="div55">55</div>
+            <div class="box" id="div54">54</div>
+            <div class="box" id="div53">53</div>
+            <div class="box" id="div52">52</div>
+            <div class="box" id="div51">51</div>
+            <div class="box" id="div41">41</div>
+            <div class="box" id="div42">42</div>
+            <div class="box" id="div43">43</div>
+            <div class="box" id="div44">44</div>
+            <div class="box" id="div45">45</div>
+            <div class="box" id="div46">46</div>
+            <div class="box" id="div47">47</div>
+            <div class="box" id="div48">48</div>
+            <div class="box" id="div49">49</div>
+            <div class="box" id="div50">50</div>
+            <div class="box" id="div40">40</div>
+            <div class="box" id="div39">39</div>
+            <div class="box" id="div38">38</div>
+            <div class="box" id="div37">37</div>
+            <div class="box" id="div36">36</div>
+            <div class="box" id="div35">35</div>
+            <div class="box" id="div34">34</div>
+            <div class="box" id="div33">33</div>
+            <div class="box" id="div32">32</div>
+            <div class="box" id="div31">31</div>
+            <div class="box" id="div21">21</div>
+            <div class="box" id="div22">22</div>
+            <div class="box" id="div23">23</div>
+            <div class="box" id="div24">24</div>
+            <div class="box" id="div25">25</div>
+            <div class="box" id="div26">26</div>
+            <div class="box" id="div27">27</div>
+            <div class="box" id="div28">28</div>
+            <div class="box" id="div29">29</div>
+            <div class="box" id="div30">30</div>
+            <div class="box" id="div20">20</div>
+            <div class="box" id="div19">19</div>
+            <div class="box" id="div18">18</div>
+            <div class="box" id="div17">17</div>
+            <div class="box" id="div16">16</div>
+            <div class="box" id="div15">15</div>
+            <div class="box" id="div14">14</div>
+            <div class="box" id="div13">13</div>
+            <div class="box" id="div12">12</div>
+            <div class="box" id="div11">11</div>
+            <div class="box" id="div1">1</div>
+            <div class="box" id="div2">2</div>
+            <div class="box" id="div3">3</div>
+            <div class="box" id="div4">4</div>
+            <div class="box" id="div5">5</div>
+            <div class="box" id="div6">6</div>
+            <div class="box" id="div7">7</div>
+            <div class="box" id="div8">8</div>
+            <div class="box" id="div9">9</div>
+            <div class="box" id="div10">10</div>
+        </div>
+        
+
+    </div>
+    <div class="btn">
+        
+        <button onclick="randomnumber()">Roll</button>
+        
+    </div>
+    <script > 
+        function win(){
+            let win= new Audio('JavaScript practice/assets/level-win.mp3')
+            win.play()
+        }
+        function lose(){
+            let lose= new Audio('JavaScript practice/assets/level-lost.mp3')
+            lose.play()
+        }
+        let n=prompt("Enter your name")      
+        let div = document.createElement("div");
+        div.style.height = "20px";
+        div.style.width = "20px";
+        div.style.borderRadius="50%"
+        div.style.backgroundColor = "red";
+        
+        let count1 = 0;
+        // let c1=[0,0,0,0,0]
+            function randomnumber() {
+                let n = 1+ Math.floor(Math.random() * 6);
+                let button=document.querySelector("button")
+                
+                
+                if (count1 + n <= 100) {
+                    count1 = count1 + n;
+                        if (count1 == 4) {
+                        count1 = 25;
+                        } else if (count1 == 13) {
+                        count1 = 46;
+                        } else if (count1 == 27) {
+                        count1 = 5;
+                        } else if (count1 == 33) {
+                        count1 = 49;
+                        } else if (count1 == 40) {
+                        count1 = 3;
+                        } else if (count1 == 42) {
+                        count1 = 63;
+                        } else if (count1 == 43) {
+                        count1 = 18;
+                        } else if (count1 == 50) {
+                        count1 = 69;
+                        } else if (count1 == 54) {
+                        count1 = 31;
+                        } else if (count1 == 62) {
+                        count1 = 81;
+                        } else if (count1 == 66) {
+                        count1 = 45;
+                        } else if (count1 == 76) {
+                        count1 = 58;
+                        } else if (count1 == 89) {
+                        count1 = 53;
+                        } else if (count1 == 99) {
+                        count1 = 41;
+                        } else if (count1 == 100) {
+                        count1 = 100;
+                        }
+                        if(n==6){
+                            randomnumber();
+                        }
+                        console.log(count1, "count");
+                        console.log(n, "dice");
+                        let tile = document.getElementById(`div${count1}`);
+                        tile.appendChild(div);
+                }
+                if(count1==100){
+                    win();
+                    alert("You Won!")
+                }
+                
+                
+                
+            }
+            //     if (count + n <= 100) {
+            //         count = count + n;
+            //         console.log(count, "count");
+            //         console.log("DICE");
+            //         console.log(n, "dice");
+            //         let tile = document.getElementById(`div${count}`);
+            //         tile.appendChild(div);
+            //     }
+            // }
+            
+            
+        // function randomcolor(){
+        //     let blank=""
+        //     let hex="012345679ABCDEF"
+
+        //     for(let i=0;i<=4;i++){
+        //         blank = blank + hex[Math.floor(Math.random()*16)]
+        //     }
+        //     let c = "#f" + blank;
+        //     return c;   
+        // }
+
+        // const boxes=document.querySelectorAll('.box')
+        // boxes.forEach (box=>{
+        //     box.style.backgroundColor =  randomcolor()
+        // })
+
+    </script>
+</body>
+</html>
